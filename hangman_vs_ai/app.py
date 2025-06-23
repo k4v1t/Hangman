@@ -19,7 +19,6 @@ st.markdown("""
     /* Set page-wide dark background */
     html, body, .stApp {
         background-color: #000 !important;
-        background-image: url('https://www.transparenttextures.com/patterns/pixel-weave.png');
         background-repeat: repeat;
     }
 
@@ -340,7 +339,7 @@ elif not st.session_state.game_over and st.session_state.turn == "ai":
 
 st.markdown("""
 <hr style="margin-top: 3em; border: none; border-top: 2px dashed #0ff;" />
-
+<p>Want to team up IRL? Check these out:</p>
 <div style='text-align: center; padding-bottom: 1em; font-size: 10px;'>
     <a href='https://github.com/k4v1t' target='_blank' style='text-decoration: none; margin: 0 20px; color: #00ffff;'>🕹 GitHub</a>
     <a href='https://www.linkedin.com/in/kavittolia' target='_blank' style='text-decoration: none; margin: 0 20px; color: #00ffff;'>💼 LinkedIn</a>
