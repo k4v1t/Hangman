@@ -141,18 +141,8 @@ if "target_word" not in st.session_state:
 col1, col_mid, col2 = st.columns([4, 1, 4])
 
 with col1:
-    
-    st.markdown(
-        """
-        <div style='text-align: center;'>
-            <img src='hangman_vs_ai/assets/images/human_avatar.png' width='100'>
-            <div style='margin-top: 8px; font-size: 12px; color: #00ffff;'>PLAYER 1</div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
 
-    #st.image("hangman_vs_ai/assets/images/human_avatar.png", caption="PLAYER 1", width=150)
+    st.image("hangman_vs_ai/assets/images/human_avatar.png", caption="PLAYER 1", width=150)
 
     health_left = 6 - st.session_state.human_wrong
     human_img_path = f"hangman_vs_ai/assets/healthbars/human_{health_left}_lives.png"
@@ -169,18 +159,8 @@ with col_mid:
     st.markdown("### VS")
 
 with col2:
-    
-    st.markdown(
-        """
-        <div style='text-align: center;'>
-            <img src='hangman_vs_ai/assets/images/ai_avatar.png' width='100'>
-            <div style='margin-top: 8px; font-size: 12px; color: #00ffff;'>AI</div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
 
-    #st.image("hangman_vs_ai/assets/images/ai_avatar.png", caption="AI", width=150)  
+    st.image("hangman_vs_ai/assets/images/ai_avatar.png", caption="AI", width=150)  
     
     health_right = 6 - st.session_state.ai_wrong
     ai_img_path = f"hangman_vs_ai/assets/healthbars/ai_{health_right}_lives.png"
