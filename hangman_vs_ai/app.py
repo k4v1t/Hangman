@@ -73,9 +73,9 @@ if "game_started" not in st.session_state:
     st.title("🕹️ HangMAN vs AI")
     
     st.markdown("""
-        Welcome to the retro showdown of the century!
+        Welcome to my cool little project!
 
-        🧍‍♂️ **You** vs 🤖 **The Transformer**
+        🧍‍♂️ **Man** vs 🤖 **The Machine**
 
         Each of you gets 6 lives. Take turns guessing letters to uncover the hidden word.
 
@@ -285,7 +285,7 @@ if not st.session_state.game_over and st.session_state.turn == "human":
         setTimeout(() => {
             const input = window.document.querySelector('input[data-testid="stTextInput"]');
             if (input) input.focus();
-        }, 300);
+        }, 100);
         </script>
     """, unsafe_allow_html=True)
 
@@ -339,7 +339,7 @@ elif not st.session_state.game_over and st.session_state.turn == "ai":
 
 st.markdown("""
 <hr style="margin-top: 3em; border: none; border-top: 2px dashed #0ff;" />
-<p>Want to team up IRL? Check these out:</p>
+<p style='margin-bottom: 10px;'>Want to team up IRL? Check these out:</p>
 <div style='text-align: center; padding-bottom: 1em; font-size: 10px;'>
     <a href='https://github.com/k4v1t' target='_blank' style='text-decoration: none; margin: 0 20px; color: #00ffff;'>🕹 GitHub</a>
     <a href='https://www.linkedin.com/in/kavittolia' target='_blank' style='text-decoration: none; margin: 0 20px; color: #00ffff;'>💼 LinkedIn</a>
