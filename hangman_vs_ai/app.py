@@ -142,10 +142,10 @@ col1, col_mid, col2 = st.columns([4, 1, 4])
 
 with col1:
     
-    st.image("assets/images/human_avatar.png", caption="PLAYER 1", width=150)
+    st.image("hangman_vs_ai/assets/images/human_avatar.png", caption="PLAYER 1", width=150)
 
     health_left = 6 - st.session_state.human_wrong
-    human_img_path = f"assets/healthbars/human_{health_left}_lives.png"
+    human_img_path = f"hangman_vs_ai/assets/healthbars/human_{health_left}_lives.png"
     st.image(human_img_path, use_column_width=True)
 
     correct_guesses = [g for g in st.session_state.human_guessed if g in st.session_state.target_word]
@@ -160,10 +160,10 @@ with col_mid:
 
 with col2:
     
-    st.image("assets/images/ai_avatar.png", caption="AI", width=150)  
+    st.image("hangman_vs_ai/assets/images/ai_avatar.png", caption="AI", width=150)  
     
     health_right = 6 - st.session_state.ai_wrong
-    ai_img_path = f"assets/healthbars/ai_{health_right}_lives.png"
+    ai_img_path = f"hangman_vs_ai/assets/healthbars/ai_{health_right}_lives.png"
     st.image(ai_img_path, use_column_width=True)
 
     ai_correct = sum(1 for g in st.session_state.ai_guessed if g in st.session_state.target_word)
