@@ -4,7 +4,6 @@ import re
 import string
 import random
 import math
-from keras.preprocessing.sequence import pad_sequences
 from model.model_definition import HangmanTransformer
 import torch.nn.functional as F
 
@@ -112,6 +111,28 @@ def load_model(model_path: str, device: str = "cpu"):
     model.eval()
     model.to(device)
 
+def pad_sequences(sequences, maxlen=None, padding='pre', truncating='pre', value=0):
+    
+    if not maxlen:
+        maxlen = max(len(seq) for seq in sequences)
+
+    padded = []
+    for seq in sequences:
+        if len(seq) > maxlen:
+            if truncating == 'pre':
+                seq = seq[-maxlen:]
+            else:  # 'post'
+                seq = seq[:maxlen]
+        elif len(seq) < maxlen:
+            pad_width = maxlen - len(seq)
+            pad = [value] * pad_width
+            if padding == 'pre':
+                seq = pad + seq
+            else:  # 'post'
+                seq = seq + pad
+        padded.append(seq)
+
+    return padded
 
 def generate_features(masked_samples):
 
