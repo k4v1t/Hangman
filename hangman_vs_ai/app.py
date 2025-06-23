@@ -109,7 +109,7 @@ else:
 # Game Init
 # ------------------------------
 def get_random_word():
-    with open("data/words.txt", "r") as f:
+    with open("hangman_vs_ai/data/words.txt", "r") as f:
         words = [line.strip() for line in f if line.strip()]
     return secrets.choice(words)
 
