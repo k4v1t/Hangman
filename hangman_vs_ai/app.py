@@ -96,7 +96,7 @@ if "game_started" not in st.session_state:
 # ------------------------------
 @st.cache_resource
 def load_model_cached():
-    load_model("model/transformer.pt")
+    load_model("hangman_vs_ai/model/transformer.pt")
 
 if "model_loaded" not in st.session_state:
     with st.spinner("Loading AI model..."):
