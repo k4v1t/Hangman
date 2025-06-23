@@ -146,7 +146,7 @@ with col1:
 
     health_left = 6 - st.session_state.human_wrong
     human_img_path = f"hangman_vs_ai/assets/healthbars/human_{health_left}_lives.png"
-    st.image(human_img_path, use_column_width=True)
+    st.image(human_img_path, use_container_width=True)
 
     correct_guesses = [g for g in st.session_state.human_guessed if g in st.session_state.target_word]
     wrong_guesses = [g for g in st.session_state.human_guessed if g not in st.session_state.target_word]
@@ -164,7 +164,7 @@ with col2:
     
     health_right = 6 - st.session_state.ai_wrong
     ai_img_path = f"hangman_vs_ai/assets/healthbars/ai_{health_right}_lives.png"
-    st.image(ai_img_path, use_column_width=True)
+    st.image(ai_img_path, use_container_width=True)
 
     ai_correct = sum(1 for g in st.session_state.ai_guessed if g in st.session_state.target_word)
     ai_wrong = sum(1 for g in st.session_state.ai_guessed if g not in st.session_state.target_word)
