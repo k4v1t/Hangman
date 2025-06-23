@@ -9,18 +9,26 @@ st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+    /* Global font and color */
     * {
         font-family: 'Press Start 2P', monospace !important;
         font-size: 12px !important;
         color: #00ffff;
     }
 
-    html, body {
-        background-color: #111;
+    /* Set page-wide dark background */
+    html, body, .stApp {
+        background-color: #000 !important;
         background-image: url('https://www.transparenttextures.com/patterns/pixel-weave.png');
         background-repeat: repeat;
     }
 
+    /* Darken Streamlit's content container too */
+    .block-container {
+        background-color: rgba(0, 0, 0, 0.85) !important;
+    }
+
+    /* CRT scanline overlay */
     body::before {
         content: "";
         position: fixed;
@@ -37,16 +45,7 @@ st.markdown("""
         z-index: 9999;
     }
 
-    .arcade-frame {
-        border: 8px solid #0ff;
-        padding: 20px;
-        margin: 10px auto;
-        max-width: 1000px;
-        background: rgba(0, 0, 0, 0.85);
-        box-shadow: 0 0 30px #0ff, 0 0 60px #0ff inset;
-        border-radius: 16px;
-    }
-
+    /* Retro-style button */
     .stButton>button {
         background-color: #222;
         color: #0ff;
@@ -54,11 +53,13 @@ st.markdown("""
         border-radius: 0;
     }
 
+    /* Retro-style input */
     .stTextInput>div>input {
         background-color: #000;
         color: #0ff;
     }
 
+    /* Ensure all text elements follow the font */
     .stMarkdown, .stAlert, .stText, .stSubheader, .stCodeBlock {
         font-family: 'Press Start 2P', monospace !important;
     }
@@ -335,3 +336,14 @@ elif not st.session_state.game_over and st.session_state.turn == "ai":
 
     check_turn_and_game_state()
     st.rerun()
+
+
+st.markdown("""
+<hr style="margin-top: 3em; border: none; border-top: 2px dashed #0ff;" />
+
+<div style='text-align: center; padding-bottom: 1em; font-size: 10px;'>
+    <a href='https://github.com/k4v1t' target='_blank' style='text-decoration: none; margin: 0 20px; color: #00ffff;'>🕹 GitHub</a>
+    <a href='https://www.linkedin.com/in/kavittolia' target='_blank' style='text-decoration: none; margin: 0 20px; color: #00ffff;'>💼 LinkedIn</a>
+    <a href='https://raw.githubusercontent.com/k4v1t/CV/main/CV_Kavit_Tolia.pdf' target='_blank' style='text-decoration: none; margin: 0 20px; color: #00ffff;'>📄 CV</a>
+</div>
+""", unsafe_allow_html=True)
