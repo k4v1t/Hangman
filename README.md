@@ -46,3 +46,20 @@ Built with [Streamlit](https://streamlit.io), the web app provides:
 - Real-time interactive play
 - Local model inference (no backend required)
 - Retro UI, responsive layout (best played on desktop, mobile works in landscape)
+
+---
+
+## 🔮 Future Improvements
+
+I'm actively exploring new features and would love suggestions from the community! Here are some ideas already on the roadmap:
+
+- **Whole-word guesses**: Let users attempt full-word guesses (like real Hangman), with a penalty mechanism that disadvantages the AI if guessed correctly
+- **Difficulty settings**: Adjustable game difficulty by altering the word list (e.g. rare vs common words)
+- **AI explainability**: Show the AI’s top candidate letters or confidence scores (optional toggle for the curious)
+- **Human vs AI stats**: Track win/loss records across sessions or leaderboards
+- **Word definitions**: Option to reveal the word’s meaning after the game (educational bonus!)
+- **Mobile UX improvements**: Full-screen mode and better gesture handling on phones/tablets
+- **Alternative models**: Experiment with distilled models or LSTMs for faster loading/inference
+
+👂 **Got an idea?**  
+Open an issue or submit a PR! I'm keen to hear what features you'd enjoy or how to make the AI smarter/fairer/more fun.
