@@ -2,7 +2,7 @@
 
 An AI that plays Hangman by predicting the next letter using a custom-trained Transformer model and real-time gameplay in a retro-style Streamlit app.
 
-Try it live 👉 [(your-app-link)](https://hangman-vs-ai.streamlit.app)
+Try it live 👉 [Play Here!](https://hangman-vs-ai.streamlit.app)
 
 ---
 
