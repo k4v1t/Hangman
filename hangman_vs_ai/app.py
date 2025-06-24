@@ -73,7 +73,7 @@ if "game_started" not in st.session_state:
     st.title("🕹️ HangMAN vs AI")
     
     st.markdown("""
-        Welcome to my cool little project!
+        Welcome to my fun little project!
 
         🧍‍♂️ **Man** vs 🤖 **The Machine**
 
