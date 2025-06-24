@@ -144,15 +144,15 @@ with col1:
 
     st.image("hangman_vs_ai/assets/images/human_avatar.png", caption="PLAYER 1", width=150)
 
-    health_left = 6 - st.session_state.human_wrong
-    human_img_path = f"hangman_vs_ai/assets/healthbars/human_{health_left}_lives.png"
+    health_human = 6 - st.session_state.human_wrong
+    human_img_path = f"hangman_vs_ai/assets/healthbars/human_{health_human}_lives.png"
     st.image(human_img_path, use_container_width=True)
 
-    correct_guesses = [g for g in st.session_state.human_guessed if g in st.session_state.target_word]
-    wrong_guesses = [g for g in st.session_state.human_guessed if g not in st.session_state.target_word]
-    st.markdown(f"❤️ Lives: {health_left}/6")
-    st.markdown("✅ Correct: " + ", ".join(correct_guesses))
-    st.markdown("❌ Wrong: " + ", ".join(wrong_guesses))
+    human_correct_guesses = [g for g in st.session_state.human_guessed if g in st.session_state.target_word]
+    human_wrong_guesses = [g for g in st.session_state.human_guessed if g not in st.session_state.target_word]
+    st.markdown(f"❤️ Lives: {health_human}/6")
+    st.markdown(f"✅ Correct ({len(human_correct_guesses)}): " + ", ".join(human_correct_guesses) if human_correct_guesses else "✅ Correct: –")
+    st.markdown(f"❌ Wrong ({len(human_wrong_guesses)}): " + ", ".join(human_wrong_guesses) if human_wrong_guesses else "❌ Wrong: –")
     st.markdown(f"**Word:** `{st.session_state.masked_word}`")
 
 with col_mid:
@@ -162,15 +162,21 @@ with col2:
 
     st.image("hangman_vs_ai/assets/images/ai_avatar.png", caption="AI", width=150)  
     
-    health_right = 6 - st.session_state.ai_wrong
-    ai_img_path = f"hangman_vs_ai/assets/healthbars/ai_{health_right}_lives.png"
+    health_ai = 6 - st.session_state.ai_wrong
+    ai_img_path = f"hangman_vs_ai/assets/healthbars/ai_{health_ai}_lives.png"
     st.image(ai_img_path, use_container_width=True)
 
-    ai_correct = sum(1 for g in st.session_state.ai_guessed if g in st.session_state.target_word)
-    ai_wrong = sum(1 for g in st.session_state.ai_guessed if g not in st.session_state.target_word)
-    st.markdown(f"❤️ Lives: {health_right}/6")
-    st.markdown(f"✅ Correct: {ai_correct}")
-    st.markdown(f"❌ Wrong: {ai_wrong}")
+    ai_correct_guesses = [g for g in st.session_state.ai_guessed if g in st.session_state.target_word]
+    ai_wrong_guesses = [g for g in st.session_state.ai_guessed if g not in st.session_state.target_word]
+    st.markdown(f"❤️ Lives: {health_ai}/6")
+
+    if not st.session_state.game_over:
+        st.markdown(f"✅ Correct: {len(ai_correct_guesses)}")
+        st.markdown(f"❌ Wrong: {len(ai_wrong_guesses)}")
+    else:
+        st.markdown(f"✅ Correct ({len(ai_correct_guesses)}): " + ", ".join(ai_correct_guesses) if ai_correct_guesses else "✅ Correct: –")
+        st.markdown(f"❌ Wrong ({len(ai_wrong_guesses)}): " + ", ".join(ai_wrong_guesses) if ai_wrong_guesses else "❌ Wrong: –")
+        st.markdown(f"**Word:** `{st.session_state.ai_masked_word}`")        
 
 # ------------------------------
 # Turn + Game Over Checker
@@ -336,6 +342,15 @@ elif not st.session_state.game_over and st.session_state.turn == "ai":
     check_turn_and_game_state()
     st.rerun()
 
+st.markdown("""
+<hr style="
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, #0ff, #08f, #0ff);
+    box-shadow: 0 0 10px #0ff;
+    margin: 2em 0;
+">
+""", unsafe_allow_html=True)
 
 st.markdown("""
     <div style='text-align: center; margin-top: 50px; font-size: 12px; color: #00ffff;'>
